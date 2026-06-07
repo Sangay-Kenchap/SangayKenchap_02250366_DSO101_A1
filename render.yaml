@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: be-todo-auto
+    runtime: docker
+    repo: https://github.com/Chimirinzin99/Chimirinzin_02250346_DSO101_A1.git
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: todo-db
+          property: connectionString
+      - key: PORT
+        value: 5000
+
+  - type: web
+    name: fe-todo-auto
+    runtime: docker
+    repo: https://github.com/Chimirinzin99/Chimirinzin_02250346_DSO101_A1.git
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://be-todo-auto.onrender.com
+
+databases:
+  - name: todo-db
+    plan: free
+    databaseName: tododb
+    user: todo_user
