@@ -70,7 +70,7 @@ npm start
 Frontend runs on:
 
 ```text
-http://localhost:5000
+http://localhost:3000
 ```
 
 ## Challenges Faced
